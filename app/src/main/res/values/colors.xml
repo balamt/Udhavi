@@ -7,4 +7,8 @@
     <color name="teal_700">#870101</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent_color">#00000000</color>
+    <color name="colorBluClima">#BCEFF6</color>
+    <color name="colorGreenServizi">#B2F7B0</color>
+    <color name="colorRossoErrore">#EAF7AA</color>
 </resources>

@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:alpha=".6"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:alpha=".9"
     android:background="#00474343">
 
     <RelativeLayout
@@ -18,25 +19,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="visible"
-            android:background="@mipmap/ic_launcher_round">
+            android:background="@color/transparent_color"
+            android:padding="10dp"
+            android:visibility="visible">
 
-            <ImageView
-                android:id="@+id/buttonClose"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="50dp"
-                android:src="@mipmap/ic_yellow_floater_icon_round" />
-
-            <Button
+            <ImageButton
                 android:id="@+id/expandBtn"
-                android:layout_width="45dp"
-                android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="18dp"
-                android:alpha=".1" />
+                android:layout_width="@dimen/floater_btn_size"
+                android:layout_height="@dimen/floater_btn_size"
+                android:src="@mipmap/ic_floater_icon" />
+
         </RelativeLayout>
 
         <!-- this is the expanded layout -->
@@ -44,16 +36,17 @@
             android:id="@+id/layoutExpanded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#3231373C"
+            android:background="#10434C54"
             android:orientation="vertical"
             android:padding="8dp"
             android:visibility="gone">
 
             <ImageView
-                android:id="@+id/buttonSimplifiedCodingExpanded"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@mipmap/ic_launcher_round"
+                android:id="@+id/closeBtn"
+                android:layout_width="@dimen/floater_panel_btn_size"
+                android:layout_height="@dimen/floater_panel_btn_size"
+                android:src="@drawable/ic_close_48"
+                android:background="@color/white"
                 tools:ignore="ContentDescription" />
 
             <LinearLayout
@@ -63,36 +56,65 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/closeBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@android:drawable/btn_dialog" />
-
-                <ImageView
                     android:id="@+id/powerBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_yellow_floater_icon_round" />
+                    android:layout_width="@dimen/floater_panel_btn_size"
+                    android:layout_height="@dimen/floater_panel_btn_size"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/ic_power_icon_svg" />
 
                 <ImageView
                     android:id="@+id/homeBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_yellow_floater_icon_round" />
-
-                <ImageView
-                    android:id="@+id/customAppBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_yellow_floater_icon_round" />
+                    android:layout_width="@dimen/floater_panel_btn_size"
+                    android:layout_height="@dimen/floater_panel_btn_size"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/ic_home_icon_svg" />
 
                 <ImageView
                     android:id="@+id/lockBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_yellow_floater_icon_round" />
+                    android:layout_width="@dimen/floater_panel_btn_size"
+                    android:layout_height="@dimen/floater_panel_btn_size"
+                    android:src="@drawable/ic_lock_icon_svg" />
+                <ImageView
+                    android:id="@+id/volumeBtn"
+                    android:layout_width="@dimen/floater_panel_btn_size"
+                    android:layout_height="@dimen/floater_panel_btn_size"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/ic_volume_icon_svg" />
+                <ImageView
+                    android:id="@+id/ringerBtn"
+                    android:layout_width="@dimen/floater_panel_btn_size"
+                    android:layout_height="@dimen/floater_panel_btn_size"
+                    android:layout_marginBottom="4dp"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_ringer_icon" />
             </LinearLayout>
+            <FrameLayout
+                android:id="@+id/volumeSliderLayout"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
 
+                <TextView
+                    android:id="@+id/volumeValue"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/volumeSlider"
+                    android:theme="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="200dp"
+                    android:layout_height="32dp"
+                    android:rotation="270"
+                    android:layout_gravity="center"
+                    app:labelBehavior="gone"
+                    android:valueFrom="0"
+                    android:valueTo="15"
+                    android:stepSize="1"
+                    />
+            </FrameLayout>
         </LinearLayout>
     </RelativeLayout>
 </FrameLayout>
